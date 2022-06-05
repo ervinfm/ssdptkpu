@@ -32,7 +32,7 @@ class Pengajuan_m extends CI_Model
             'rt_pindah' => $post['f_rt'],
             'id_tps' => $post['f_tps'],
             'status_pindah' => 0,
-            'note_pindah' => NULL
+            'note_pindah' => '',
         ];
         $this->db->insert('tbl_pindah', $params);
     }

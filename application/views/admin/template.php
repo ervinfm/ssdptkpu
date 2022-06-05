@@ -220,7 +220,7 @@
                                         document.write(new Date().getFullYear());
                                     </script>
                                     , made with ❤️ by
-                                    <a href="https://mabesgroup.org/" target="_blank" class="footer-link fw-bolder">Mabes Group</a>
+                                    <a href="https://mabesgroup.org/" target="_blank" class="footer-link fw-bolder"></a>
                                 </div>
                                 <div>
                                     <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>

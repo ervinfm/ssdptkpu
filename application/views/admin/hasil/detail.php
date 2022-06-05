@@ -113,9 +113,9 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                                             <td>Jenis Cluster</td>
                                             <td>:</td>
                                             <td>
-                                                <li class=""><span class="badge bg-success">Cluster 1</span> : Kelompok Usia Muda </li>
-                                                <li class="mt-2"><span class="badge bg-warning">Cluster 2</span> : Kelompok Usia Dewasa </li>
-                                                <li class="mt-2"><span class="badge bg-danger">Cluster 3</span> : Kelompok Usia Lansia </li>
+                                                <li class=""><span class="badge bg-success">Cluster 1</span> : Kelompok Usia Muda (17-21 Tahun)</li>
+                                                <li class="mt-2"><span class="badge bg-warning">Cluster 2</span> : Kelompok Usia Dewasa (22-60 Tahun) </li>
+                                                <li class="mt-2"><span class="badge bg-danger">Cluster 3</span> : Kelompok Usia Lansia (>60 Tahun)</li>
                                             </td>
                                         </tr>
                                     </table>
@@ -127,9 +127,9 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                                             <tr>
                                                 <th width="5%">No</th>
                                                 <th>Kecamatan</th>
-                                                <th>Total Cluster 1</th>
-                                                <th>Total Cluster 2</th>
-                                                <th>Total Cluster 3</th>
+                                                <th class="text-center">Cluster 1 <br>(17-21 Tahun)</th>
+                                                <th class="text-center">Cluster 2 <br>(22-60 Tahun) </th>
+                                                <th class="text-center">Cluster 3 <br>(>60 Tahun)</th>
                                                 <th>Total</th>
                                             </tr>
                                         </thead>
@@ -164,9 +164,9 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                                                 <th width="5%">No</th>
                                                 <th>Kecamatan</th>
                                                 <th>Kelurahan</th>
-                                                <th>Cluster 1</th>
-                                                <th>Cluster 2</th>
-                                                <th>Cluster 3</th>
+                                                <th class="text-center">Cluster 1 <br>(17-21 Tahun)</th>
+                                                <th class="text-center">Cluster 2 <br>(22-60 Tahun) </th>
+                                                <th class="text-center">Cluster 3 <br>(>60 Tahun)</th>
                                                 <th>Total</th>
                                             </tr>
                                         </thead>
@@ -333,21 +333,21 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
             labels: [<?= $listkec ?>],
 
             datasets: [{
-                    label: "Kelompok DPT Muda",
+                    label: "DPT Muda (17-21 Tahun)",
                     backgroundColor: '#7ed6df',
                     borderColor: '#7ed6df',
                     borderWidth: 1,
                     data: [<?= $cls1 ?>]
                 },
                 {
-                    label: "Kelompok DPT Dewasa",
+                    label: "DPT Dewasa (22-60 Tahun)",
                     backgroundColor: "#f9ca24",
                     borderColor: "#f9ca24",
                     borderWidth: 1,
                     data: [<?= $cls2 ?>]
                 },
                 {
-                    label: "Kelompok DPT Lansia",
+                    label: "DPT Lansia (>60 Tahun)",
                     backgroundColor: "#c0392b",
                     borderColor: "#c0392b",
                     borderWidth: 1,
@@ -437,7 +437,7 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
         var data = {
             labels: [<?= $listkec ?>],
             datasets: [{
-                    label: "Kelompok Muda",
+                    label: "DPT Muda (17-21 Tahun)",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "#29B0D0",
@@ -447,7 +447,7 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                     data: [<?= $gpc1 ?>]
                 },
                 {
-                    label: "Kelompok Dewasa",
+                    label: "DPT Dewasa (22-60 Tahun)",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "#2A516E",
@@ -457,7 +457,7 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                     data: [<?= $gpc2 ?>]
                 },
                 {
-                    label: "Kelompok Lansia",
+                    label: "DPT Lansia (>60 Tahun)",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "#F07124",

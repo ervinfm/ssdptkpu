@@ -246,4 +246,49 @@ class Auth extends CI_Controller
 		$data = $this->pengajuan_m->get_kel($id_kec)->result();
 		echo json_encode($data);
 	}
+
+	function profil_proses()
+	{
+		$post = $this->input->post(null, true);
+		$this->load->model('auth_m');
+		if (isset($post['images'])) {
+			$config['upload_path']    = './assets/images/users';
+			$config['allowed_types']  = 'jpg|png|jpeg|ico';
+			$config['max_size']       = 2000;
+			$config['file_name']       = 'user-' . profil()->nama_user;
+			$this->load->library('upload', $config);
+			$gambar = $this->upload->do_upload('image');
+			if ($gambar == true) {
+				if (profil()->image_user != null) {
+					$target_file = './assets/images/users/' . profil()->image_user;
+					unlink($target_file);
+					$post['image'] = $this->upload->data('file_name');
+				} else if (profil()->image_user == null) {
+					$post['image'] = $this->upload->data('file_name');
+				}
+				$this->auth_m->update_img_user($post);
+				if ($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('succes', 'Gambar Profil Berhasil Diperbaharui!');
+					redirect('profil');
+				} else {
+					$this->session->set_flashdata('error', 'Gambar Profil Gagal Diperbaharui!, <br> Sistem Error!');
+					redirect('profil');
+				}
+			} else {
+				$this->session->set_flashdata('error', 'Gagal Memuat Gambar, <br> Sistem Error!');
+				redirect('profil');
+			}
+		} else if (isset($post['profil'])) {
+			$this->auth_m->update_profil($post);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('succes', 'Data Pengguna anda berhasil Diperbaharui!');
+				redirect('profil');
+			} else {
+				$this->session->set_flashdata('error', 'Data Pengguna anda Gagal Diperbaharui!, <br> Sistem Error!');
+				redirect('profil');
+			}
+		} else {
+			redirect('profil');
+		}
+	}
 }

@@ -53,7 +53,7 @@
             $perc3 =  round(($clu3 / $totalc123) * 100, 2);
 
             $label =
-                '<h4><b>Statistik Kecamatan ' . ucfirst(strtolower($kecamatan->nama_kecamatan)) . '</b></h4> <br>Jumlah Kelurahan : ' . $nkel . ' Kelurahan <br> DPT Muda : ' . $clu1 . ' Orang (' . $perc1 . '%) <br> DPT Dewasa : ' . $clu2 . ' Orang (' . $perc2 . '%) <br> DPT Lansia : ' . $clu3 . ' Orang (' . $perc3 . '%) <br> <b>Total DPT : ' . ($clu1 + $clu2 + $clu3 . ' Orang </b>');
+                '<h4><b>Statistik Kecamatan ' . ucfirst(strtolower($kecamatan->nama_kecamatan)) . '</b></h4> <br>Jumlah Kelurahan : ' . $nkel . ' Kelurahan <br> DPT Muda (17-21 Tahun) : ' . $clu1 . ' Orang (' . $perc1 . '%) <br> DPT Dewasa (22-60 Tahun) : ' . $clu2 . ' Orang (' . $perc2 . '%) <br> DPT Lansia (>60 Tahun) : ' . $clu3 . ' Orang (' . $perc3 . '%) <br> <b>Total DPT : ' . ($clu1 + $clu2 + $clu3 . ' Orang </b>');
             $lat  = $kecamatan->latitude_maps;
             $long = $kecamatan->longitude_maps;
             echo "addMarker($lat, $long, '$label');\n";

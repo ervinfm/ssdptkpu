@@ -15,7 +15,8 @@
             <div class="d-flex align-items-start align-items-sm-center gap-4">
                 <img src="<?= base_url() ?>assets/images/users/<?= profil()->image_user == null ? 'default.png' : profil()->image_user ?>" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
                 <div class="button-wrapper">
-                    <form action="<?= site_url('profil/proses') ?>" method="post">
+                    <form action="<?= site_url('profil/proses') ?>" method="post" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+                        <input type="hidden" name="id" value="<?= profil()->id_user ?>">
                         <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                             <span class="d-none d-sm-block"><i class="bx bx-images"></i></span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
@@ -38,6 +39,7 @@
         <hr class="my-0">
         <div class="card-body">
             <form action="<?= site_url('profil/proses') ?>" method="POST">
+                <input type="hidden" name="id" value="<?= profil()->id_user ?>">
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="firstName" class="form-label">ID Pengguna *</label>
@@ -45,19 +47,19 @@
                     </div>
                     <div class="mb-3 col-md-4">
                         <label for="lastName" class="form-label">Nama Pengguna *</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName" value="<?= profil()->nama_user ?>" required>
+                        <input class="form-control" type="text" name="p_nama" id="lastName" value="<?= profil()->nama_user ?>" required>
                     </div>
                     <div class="mb-3 col-md-4">
                         <label for="email" class="form-label">E-mail *</label>
-                        <input class="form-control" type="email" id="email" name="email" value="<?= profil()->email_user ?>" placeholder="john.doe@example.com" required>
+                        <input class="form-control" type="email" id="email" name="p_email" value="<?= profil()->email_user ?>" placeholder="john.doe@example.com" required>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="organization" class="form-label">Username *</label>
-                        <input type="text" class="form-control" id="organization" name="organization" value="<?= profil()->username_user ?>" required>
+                        <input type="text" class="form-control" id="organization" name="p_username" value="<?= profil()->username_user ?>" required>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="address" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="address" name="address" placeholder="kosongkan jika tidak diubah ...">
+                        <input type="password" class="form-control" id="address" name="p_pass" placeholder="kosongkan jika tidak diubah ...">
                     </div>
                 </div>
                 <div class="mt-2">

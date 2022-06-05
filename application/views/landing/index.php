@@ -388,7 +388,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="site-info text-center">
-                                <p>Crafted by <a href="https://mabesgroup.org/" target="_blank" rel="nofollow">Mabes Industries Group</a></p>
+                                <p>Crafted by <a href="https://mabesgroup.org/" target="_blank" rel="nofollow"></a></p>
                             </div>
 
                         </div>

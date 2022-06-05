@@ -26,7 +26,6 @@ class Auth_m extends CI_Model
             'email_user' => $post['p_email'],
             'nama_user' => $post['p_nama'],
             'username_user' => $post['p_username'],
-            'image_user' => $post['image'],
 
         ];
         if ($post['p_pass'] != null) {
@@ -110,6 +109,13 @@ class Auth_m extends CI_Model
             'password_user' => sha1($post['new_pass']),
         ];
 
+        $this->db->where('id_user', $post['id']);
+        $this->db->update('tbl_user', $params);
+    }
+
+    function update_img_user($post)
+    {
+        $params['image_user'] = $post['image'];
         $this->db->where('id_user', $post['id']);
         $this->db->update('tbl_user', $params);
     }

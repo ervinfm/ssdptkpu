@@ -197,21 +197,21 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
         labels: [<?= $listkec ?>],
 
         datasets: [{
-                label: "Kelompok DPT Muda",
+                label: "DPT Muda (17-21 Tahun)",
                 backgroundColor: '#7ed6df',
                 borderColor: '#7ed6df',
                 borderWidth: 1,
                 data: [<?= $cls1 ?>]
             },
             {
-                label: "Kelompok DPT Dewasa",
+                label: "DPT Dewasa (22-60 Tahun)",
                 backgroundColor: "#f9ca24",
                 borderColor: "#f9ca24",
                 borderWidth: 1,
                 data: [<?= $cls2 ?>]
             },
             {
-                label: "Kelompok DPT Lansia",
+                label: "DPT Lansia (>60 Tahun)",
                 backgroundColor: "#c0392b",
                 borderColor: "#c0392b",
                 borderWidth: 1,
