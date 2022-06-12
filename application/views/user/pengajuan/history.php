@@ -25,7 +25,19 @@
                                         <td><?= $key + 1 ?></td>
                                         <td><?= $data->nik_pemilih ?></td>
                                         <td><?= 'TPS ' . $data->id_tps . ' (RT ' . $data->rt_pindah . '/RW ' . $data->rw_pindah . ', Kel. ' . $data->kelurahan_pindah . ', Kec. ' . $data->kecamatan_pindah . ' Kota Yogakarta' ?></td>
-                                        <td><?= $data->status_pindah == 0 ? '<span class="badge bg-warning">diProses</span>' : ($data->status_pindah == 1 ? '<span class="badge bg-success">Diterima</span>' : '<span class="badge bg-danger">Ditolak</span>') ?></td>
+                                        <td>
+                                            <?php
+                                            if ($data->status_pindah == 0) {
+                                                echo '<span class="badge bg-warning">diProses</span>';
+                                            } else if ($data->status_pindah == 1) {
+                                                echo '<span class="badge bg-success">Diterima</span>';
+                                            } else if ($data->status_pindah == 2) {
+                                                echo '<span class="badge bg-danger">Ditolak</span>';
+                                            } else if ($data->status_pindah == 3) {
+                                                echo '<span class="badge bg-primary">Selesai</span>';
+                                            }
+                                            ?>
+                                        </td>
                                         <td><?= tgl_indo(date('Y-m-d', strtotime($data->created_pindah))) . ' ' . date('H:i', strtotime($data->created_pindah)) . ' WIB' ?></td>
                                         <td>
                                             <a href="#" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#more<?= $key ?>"><i class="bx bx-info-circle"></i></a>

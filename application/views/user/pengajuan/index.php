@@ -37,6 +37,12 @@ $row_pindah = get_pindah_idpemilih($pemilih->id_pemilih, TRUE);
                         <div class="row">
                             <div class="col-sm-8 mt-2">
                                 <form action="<?= site_url('pengajuan/proses') ?>" method="POST">
+                                    <input type="hidden" name="f_kec_asal" value="<?= $pemilih->kecamatan_pemilih ?>">
+                                    <input type="hidden" name="f_kel_asal" value="<?= $pemilih->kelurahan_pemilih ?>">
+                                    <input type="hidden" name="f_rw_asal" value="<?= $pemilih->rw_pemilih ?>">
+                                    <input type="hidden" name="f_rt_asal" value="<?= $pemilih->rt_pemilih ?>">
+                                    <input type="hidden" name="f_tps_asal" value="<?= $pemilih->id_tps ?>">
+
                                     <input type="hidden" name="id_pemilih" value="<?= $pemilih->id_pemilih ?>">
                                     <div class="mb-3">
                                         <span class="h6 m-0 p-0">Formulir Pindah DPT Baru</span>

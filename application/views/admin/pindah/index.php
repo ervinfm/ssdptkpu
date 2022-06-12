@@ -26,7 +26,7 @@
                                         <td><?= $key + 1 ?></td>
                                         <td>
                                             <?php if ($pindah->status_pindah == 0) { ?>
-                                                <a href="" class="btn btn-sm btn-warning">Mengunggu</a>
+                                                <a href="" class="btn btn-sm btn-warning">Menunggu</a>
                                             <?php } else if ($pindah->status_pindah == 1) { ?>
                                                 <a href="" class="btn btn-sm btn-success">Disetujui</a>
                                             <?php } else if ($pindah->status_pindah == 2) { ?>
@@ -74,22 +74,22 @@
                                                                             <tr>
                                                                                 <td>Kecamatan</td>
                                                                                 <td>:</td>
-                                                                                <td><?= $person->kecamatan_pemilih ?></td>
+                                                                                <td><?= $pindah->kecamatan_asal ?></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>Kelurahan</td>
                                                                                 <td>:</td>
-                                                                                <td><?= $person->kelurahan_pemilih ?></td>
+                                                                                <td><?= $pindah->kelurahan_asal ?></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>RT/RW</td>
                                                                                 <td>:</td>
-                                                                                <td><?= $person->rt_pemilih . '/' . $person->rw_pemilih ?></td>
+                                                                                <td><?= $pindah->rt_asal . '/' . $pindah->rw_asal ?></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>No. TPS</td>
                                                                                 <td>:</td>
-                                                                                <td><?= $person->id_tps ?></td>
+                                                                                <td><?= $pindah->tps_asal ?></td>
                                                                             </tr>
                                                                         </table>
                                                                     </div>

@@ -26,11 +26,19 @@ class Pengajuan_m extends CI_Model
     {
         $params = [
             'id_pemilih' => $post['id_pemilih'],
-            'kecamatan_pindah' => $post['kel'],
-            'kelurahan_pindah' => $post['kec'],
+
+            'kecamatan_asal' => $post['f_kec_asal'],
+            'kelurahan_asal' => $post['f_kel_asal'],
+            'rw_asal' => $post['f_rw_asal'],
+            'rt_asal' => $post['f_rt_asal'],
+            'tps_asal' => $post['f_tps_asal'],
+
+            'kecamatan_pindah' => $post['kec'],
+            'kelurahan_pindah' => $post['kel'],
             'rw_pindah' => $post['f_rw'],
             'rt_pindah' => $post['f_rt'],
             'id_tps' => $post['f_tps'],
+
             'status_pindah' => 0,
             'note_pindah' => '',
         ];
