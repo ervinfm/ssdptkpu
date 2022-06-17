@@ -72,8 +72,8 @@ function smtp_email($post)
         'charset'   => 'utf-8',
         'protocol'  => 'smtp',
         'smtp_host' => 'smtp.gmail.com',
-        'smtp_user' => 'mabes.develover@gmail.com',  // Email gmail
-        'smtp_pass'   => 'mabes@group17',  // Password gmail
+        'smtp_user' => 'mabes.develover@gmail.com',
+        'smtp_pass'   => 'zhduihhjrkszuxjd',
         'smtp_crypto' => 'ssl',
         'smtp_port'   => 465,
         'crlf'    => "\r\n",

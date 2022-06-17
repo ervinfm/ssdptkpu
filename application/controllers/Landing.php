@@ -24,4 +24,19 @@ class Landing extends CI_Controller
             $this->load->view('landing/index');
         }
     }
+
+    function email()
+    {
+        $post = [
+            'destination' => 'ervinfm14@gmail.com',
+            'subject' => 'Email Test',
+            'massage' =>  'Test aja email'
+        ];
+        $conf = smtp_mailer($post);
+        if ($conf == 1) {
+            echo "Berhasil";
+        } else {
+            echo "Gagal";
+        }
+    }
 }
