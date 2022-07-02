@@ -573,11 +573,12 @@ function get_2dDataDPT()
     return $data_cluster;
 }
 
-function set_akurasi($id, $val)
+function set_akurasi($id, $val, $val2)
 {
     $ci = &get_instance();
     $params = [
-        'akurasi_clustering' => $val
+        'akurasi_clustering' => $val,
+        'score_clustering' => $val2
     ];
     $ci->db->where('id_clustering', $id);
     $ci->db->update('tbl_clustering', $params);
@@ -591,4 +592,42 @@ function get_dpt_byname($key)
     $ci->db->where('nama_pemilih', $key);
     $query = $ci->db->get();
     return $query;
+}
+
+function get_clustering_byid($id)
+{
+    $ci = &get_instance();
+    $ci->db->from('tbl_clustering');
+    $ci->db->where('id_clustering', $id);
+    $query = $ci->db->get();
+    return $query->row();
+}
+
+function get_Silhouette($id_cluster)
+{
+    $data = get_clustering_byid($id_cluster);
+    $all_distance = explode(",", $data->akurasi_clustering);
+    $all_score = explode(",", $data->score_clustering);
+
+    $n_score = $n_distance = $d_max = $s_max = $cluster =  0;
+    for ($i = 0; $i < 3; $i++) {
+        $n_distance = $n_distance + $all_distance[$i];
+        $params['distance_' . $i] = $all_distance[$i];
+
+        $n_score =  $n_score + $all_score[$i];
+        $params['score_' . $i] = $all_score[$i];
+
+        if ($d_max < $all_distance[$i]) {
+            $d_max = $all_distance[$i];
+            $s_max = $all_score[$i];
+            $cluster = $i;
+        }
+    }
+    $params['count_distance'] = $n_distance;
+    $params['count_score'] = $n_score;
+    $params['distance_max'] = $d_max;
+    $params['score_max'] = $s_max;
+    $params['cluster_max'] = $cluster + 1;
+
+    return $params;
 }

@@ -53,7 +53,9 @@ class Clustering extends CI_Controller
                     $data_cluster[$data->id_pemilih] = [get_umur($data->tgl_lahir_pemilih)];
                 }
 
+                // Model K-Means
                 $clustered = $kmeans->cluster($data_cluster);
+
                 $claster1 = $clustered[0];
                 $claster2 = $clustered[1];
                 $claster3 = $clustered[2];
@@ -84,8 +86,8 @@ class Clustering extends CI_Controller
 
                 $this->clustering_m->set_clustering($final);
             }
-
-            set_akurasi($id_clustering, $this->accurasi());
+            $data_silhouette = $this->accurasi();
+            set_akurasi($id_clustering, $data_silhouette['percent'], $data_silhouette['score']);
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('succes', 'Data Daftar Pemilih Tetap Berhasil dilakukan Pemetaan dan Clustering!');
                 redirect('admin/clustering/hasil/' . $id_clustering);
@@ -116,7 +118,7 @@ class Clustering extends CI_Controller
             $space->addPoint($coordinates);
         }
         $clusters = $space->cluster(3);
-        $akurasi_distance = 0;
+        $akurasi_distance = $params['percent'] = $params['score'] =   0;
         foreach ($clusters as $num => $cluster) {
             $coordinates = $cluster->getCoordinates();
             // printf(
@@ -124,11 +126,14 @@ class Clustering extends CI_Controller
             //     $num,
             //     $coordinates[0],
             //     $coordinates[1],
+            //     // $coordinates[2],
             //     count($cluster)
             // );
             $akurasi_distance += $coordinates[1];
+            $params['percent'] .= round($coordinates[0], 2) . ',';
+            $params['score'] .= count($cluster) . ',';
         }
-        return $akurasi_distance / 1.5;
+        return $params;
     }
 
     public function hasil($id)

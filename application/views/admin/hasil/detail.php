@@ -99,11 +99,11 @@ $ncall .= "'$nc1'" . ", " . "'$nc2'" . ", " . "'$nc3'";
                                             <td>:</td>
                                             <td><?= $row->nkel_clustering ?> Kelurahan</td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td>Akurasi Pemetaan</td>
                                             <td>:</td>
-                                            <td><?= round($row->akurasi_clustering, 2) ?> %</td>
-                                        </tr>
+                                            <td><?= $row->akurasi_clustering ?> %</td>
+                                        </tr> -->
                                         <tr>
                                             <td>Status Proses</td>
                                             <td>:</td>

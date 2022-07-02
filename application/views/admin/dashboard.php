@@ -1,3 +1,8 @@
+<?php
+if (get_cluster_data()->num_rows() > 0) {
+    $silhoutte = get_Silhouette(get_cluster_data()->row()->id_clustering);
+}
+?>
 <div class="row">
     <div class="col-lg-8 mb-4 order-0">
         <div class="card">
@@ -136,8 +141,8 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="fw-semibold d-block mb-1">Akurasi</span>
-                        <h3 class="card-title mb-2"><?= round(get_last_accurasi_data(), 2) ?> %</h3>
+                        <span class="fw-semibold d-block mb-1">Silhouette</span>
+                        <h3 class="card-title mb-2"> <?= @$silhoutte['distance_max'] ?></h3>
                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +3.14%</small>
                     </div>
                 </div>
@@ -146,16 +151,17 @@
                 <div class="card h-100">
                     <div class="card-header d-flex align-items-center justify-content-between pb-0">
                         <div class="card-title mb-0">
-                            <h5 class="m-0 me-2">Akurasi Pemetaan</h5>
-                            <small class="text-muted">Perhitungan Metode Confusion Matrix</small>
+                            <h5 class="m-0 me-2">Silhouette Score</h5>
+                            <small class="text-muted">Perhitungan Nilai Silhouette Optimal</small>
                         </div>
 
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="d-flex flex-column align-items-center gap-1">
-                                <h2 class="mb-2"><?= round(get_last_accurasi_data(), 2) ?> %</h2>
-                                <span>Accuracy</span>
+                                <h2 class="mb-2"> <?= @$silhoutte['score_max'] ?></h2>
+                                <span>Silhouette Score </span>
+                                <span> Optimal : Cluster <?= @$silhoutte['cluster_max'] ?> </span>
                             </div>
                             <div id="orderStatisticsChart"></div>
                         </div>

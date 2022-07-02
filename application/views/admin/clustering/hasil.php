@@ -43,11 +43,7 @@
                                 <td>:</td>
                                 <td><?= tgl_indo(date('Y-m-d', strtotime($row->created_clustering))) . ' ' . date('H:i', strtotime($row->created_clustering)) . ' WIB' ?></td>
                             </tr>
-                            <tr>
-                                <td>Akurasi Clustering</td>
-                                <td>:</td>
-                                <td><?= round($row->akurasi_clustering, 2) ?> % <small><i>(Metode Confusion Matrix oleh Distance Cluster)</i></small></td>
-                            </tr>
+
                             <tr>
                                 <td>Status</td>
                                 <td>:</td>

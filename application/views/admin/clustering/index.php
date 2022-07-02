@@ -57,7 +57,7 @@
                                 <tr>
                                     <td>Kelompok Cluster (usia)</td>
                                     <td>:</td>
-                                    <td>3 Class</td>
+                                    <td>3 Cluster</td>
                                 </tr>
                                 <tr>
                                     <td>Goal Cluster</td>

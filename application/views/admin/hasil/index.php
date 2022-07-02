@@ -20,7 +20,7 @@
                                     <th>Jumlah Data</th>
                                     <th>Jumlah Kecamatan</th>
                                     <th>Jumlah Kelurahan</th>
-                                    <th>Akurasi</th>
+                                    <th>Cluster Optimal</th>
                                     <th>Status</th>
                                     <th width="5%">Detail</th>
                                 </tr>
@@ -28,14 +28,16 @@
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($row->result() as $key => $data) { ?>
+                                foreach ($row->result() as $key => $data) {
+                                    $silhuete = get_Silhouette($data->id_clustering);
+                                ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= tgl_indo(date('Y-m-d', strtotime($data->created_clustering))) ?></td>
                                         <td><?= $data->ndata_clustering ?> Data</td>
                                         <td><?= $data->nkec_clustering ?> Kecamatan</td>
                                         <td><?= $data->nkel_clustering ?> Kecamatan</td>
-                                        <td><?= round($data->akurasi_clustering, 2) ?> %</td>
+                                        <td>Cluster <?= $silhuete['cluster_max'] ?></td>
                                         <td><?= $data->status_clustering == 0 ? '<span class="badge bg-danger">Perlu Konfirmasi</span>' : '<span class="badge bg-success">Selesai</span>' ?></td>
                                         <td>
                                             <a href="<?= site_url('admin/hasil/detail/' . $data->id_clustering) ?>" class="btn btn-icon btn-info">
